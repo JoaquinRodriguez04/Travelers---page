@@ -108,16 +108,17 @@ header{
 }
 
 /* estilizando el div links_icon para que no aparezca en desktop  */
-.links i{
+.navbar_container .links_container .links i{
     display: none;
 }
 
 /* estilizando los a > div links */
-.links a{
+.links a, i{
     color: #fff;
     text-decoration: none;
     margin: 0 10px;
     font-size: 18px;
+    font-weight: 400;
     transition: color, 200ms ease;
 }
 
@@ -126,6 +127,11 @@ header{
    color: #f1d272;
    text-decoration: underline;
 }
+
+/* aplicando un efecto hover a las etiqueta i > div links */
+.links i:hover{
+    color: #f1d272;
+ }
 
 /* DIV: hero */
 
@@ -239,17 +245,7 @@ header{
 
 .social_networks > a{
     font-size: 20px;
-    margin: 0 5px;
-    color: #fff;
-}
-
-.social_networks > i{
-    color: #fff;
-    display: block;
-}
-
-.social_networks > i:hover{
-    color: #f1d272;
+    margin: 0 8px;
 }
 
 /* MEDIA QUERIES: hero */
