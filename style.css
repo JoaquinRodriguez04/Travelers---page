@@ -40,6 +40,23 @@ body a{
    color: #333;
 }
 
+/* estilizando title_overline */
+.title_overline{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 75px 0 20px;
+    width: 100%;
+}
+
+.line{
+    width: 5%;
+    padding: 2.2px;
+    margin-top: 6px;
+    border-radius: 20px;
+    background-color: #ffcd27;
+}
+
 /* medidas a utilizar para un diseño responisvo */
 /* desktop(1024px) */
 /* tablet(1024px-max, 768px-min) */
@@ -214,6 +231,8 @@ header{
 
 /* estilizando el div social_networks */
 .social_networks{
+    display: flex;
+    align-items: center;
     margin-top: 45px;
     width: 100%;
 }
@@ -226,6 +245,7 @@ header{
 
 .social_networks > i{
     color: #fff;
+    display: block;
 }
 
 .social_networks > i:hover{
@@ -444,10 +464,9 @@ para ajustar correctamente las tarjetas y ajustar el padding > navbar_container 
 
 /* tours */
 
-
-/* estilizando el section tours */
-.tours{
-    background-color: #f9f9f9;
+/* estilizando el div title_tours */
+.title_tours{
+    margin-bottom: 60px;
 }
 
 /* estilizando el div tours_title */
@@ -601,23 +620,6 @@ para ajustar correctamente las tarjetas y ajustar el padding > navbar_container 
 }
 
 /* About_us */
-
-/* estilizando title_overline > About_us */
-.title_overline{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 75px 0 20px;
-    width: 100%;
-}
-
-.line{
-    width: 5%;
-    padding: 2.2px;
-    margin-top: 6px;
-    border-radius: 20px;
-    background-color: #ffcd27;
-}
 
 /* estilizando etiquetas(h2 y p) > About_us */
 .About_us h2,p{
