@@ -34,10 +34,10 @@ body h2{
 
 /* aplicando estilo general al los h2 > body */
 body a{
-   text-decoration: none;
-   font-size: 16px;
-   font-weight: 600;
-   color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
 }
 
 /* estilizando title_overline */
@@ -108,9 +108,9 @@ header{
 }
 
 /* estilizando el div links_icon para que no aparezca en desktop  */
-.navbar_container .links_container .links i{
+/* .navbar_container .links_container .links i{
     display: none;
-}
+} */
 
 /* estilizando los a > div links */
 .links a, i{
@@ -124,14 +124,14 @@ header{
 
 /* aplicando un efecto hover a las etiqueta a > div links */
 .links a:hover{
-   color: #f1d272;
-   text-decoration: underline;
+    color: #f1d272;
+    text-decoration: underline;
 }
 
 /* aplicando un efecto hover a las etiqueta i > div links */
 .links i:hover{
     color: #f1d272;
- }
+}
 
 /* DIV: hero */
 
@@ -256,13 +256,18 @@ header{
 /* design: desktop */
 @media screen and (min-width:1800px){
     .navbar_container{
-      margin: 0 300px;
+        margin: 0 300px;
     }
 }
 
+@media screen and (min-width:1024px) {
+    
+    .links_container .links i{
+        display: none;
+    }
+    
+}
 
-/* mobile(768px-max) */
-/* design: mobile */
 @media screen and (max-width:1024px) {
     
     .navbar_container{
@@ -273,22 +278,20 @@ header{
     .links_container .links a{
         display: none;
     }
-
-    .links_container .links i{
-        display:block;
-    }
-
+    
     .links_container .links i{
         font-size: 40px;
         font-weight: 900;
         color: #fff;
     }
-
+    
     .links_container .links i:hover{
         color: #f1d272;
     }
-
+    
 }
+
+
 
 /* MEDIA QUERIES: hero */
 
@@ -312,15 +315,15 @@ para ajustar correctamente los textos */
 }
 
 @media screen and (min-width:1800px){
-  .hero_left{
-    margin: 0 300px;
-  }
+    .hero_left{
+        margin: 0 300px;
+    }
 }
 
 /* tablet(1024px-max, 768px-min) */
 /* design: tablet */
 @media screen and (min-width:768px) and (max-width:1024px){
-
+    
     .text_hero h3{
         font-size: 40px;
     }
@@ -343,11 +346,11 @@ para ajustar correctamente los textos */
     .text_hero h2{
         font-size: 100px;
     }
-
+    
     .text_hero p{
         font-size: 20px;
     }
-
+    
     .hero_left{
         margin: 0 35px;
     }
@@ -373,7 +376,7 @@ para ajustar correctamente las tarjetas y ajustar el padding > navbar_container 
         left: -250px;
         top: 20px;
     }
-
+    
     .tarjets_hero .img3{
         width: 300px;
         height: 310px;
@@ -396,7 +399,7 @@ para ajustar correctamente las tarjetas y ajustar el padding > navbar_container 
         left: -240px;
         top: 20px;
     }
-
+    
     .tarjets_hero .img3{
         width: 320px;
         height: 300px;
@@ -419,7 +422,7 @@ para ajustar correctamente las tarjetas y ajustar el padding > navbar_container 
         left: -200px;
         top: 20px;
     }
-
+    
     .tarjets_hero .img3{
         width: 380px;
         height: 370px;
@@ -442,7 +445,7 @@ para ajustar correctamente las tarjetas y ajustar el padding > navbar_container 
         left: -190px;
         top: 20px;
     }
-
+    
     .tarjets_hero .img3{
         width: 400px;
         height: 390px;
@@ -750,7 +753,7 @@ margin-top: 25px;
     margin: 10px 20px;
     padding: 10px 0;
     width: 20%;
-    height: 80vh;
+    /* height: 100vh; */
 
 }
 
@@ -830,6 +833,16 @@ margin-top: 25px;
     .professional_tarjet{
         width: 70%;
     }
+
+}
+
+@media screen and (min-width:300px) and (max-width:370px) {
+
+    .professional_img{
+        width: 20vh;
+        height: 20vh;
+    }
+
 }
 
 /* tablet(1024px-max, 768px-min) */
@@ -1053,4 +1066,24 @@ footer{
    text-align: center;
    color: #f9f9f9;
    padding: 10px;
- }
+}
+
+/* mobile(768px-max) */
+/* design: mobile */
+@media screen and (max-width:768px) {
+    header{
+        width: 100%;
+    }
+
+    .tours{
+        width: 100%;
+    }
+
+    .About_us{
+        width: 100%;
+    }
+
+    .contact_us{
+        width: 100%;
+    }
+}
