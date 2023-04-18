@@ -45,10 +45,18 @@ body a{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin: 75px 0 20px;
     width: 100%;
+    /* background-color: #333; */
 }
 
+/* estilizando title_overline > h2 para que el h2 quede centrado en mobile */
+.title_overline h2{
+   text-align: center;
+}
+
+/* estilizando line > title_overline */
 .line{
     width: 5%;
     padding: 2.2px;
@@ -57,10 +65,10 @@ body a{
     background-color: #ffcd27;
 }
 
-/* medidas a utilizar para un diseño responisvo */
+/* medidas a utilizar para el diseño responisvo */
 /* desktop(1024px) */
 /* tablet(1024px-max, 768px-min) */
-/* mobile(768px-max) */
+/* mobile(320px-min / 768px-max) */
 
 /* HEADER */
 header{
@@ -106,11 +114,6 @@ header{
 .logo_text:hover{
     color: #f1d272;
 }
-
-/* estilizando el div links_icon para que no aparezca en desktop  */
-/* .navbar_container .links_container .links i{
-    display: none;
-} */
 
 /* estilizando los a > div links */
 .links a, i{
@@ -292,6 +295,33 @@ header{
 }
 
 
+/* mobile(320px-min / 768px-max) */
+/* design: mobile */
+@media screen and (min-width:320px) and (max-width:520px) {
+    .navbar_container{
+       margin: 0 10px;
+    }
+
+    .hero .hero_left{
+        margin: 0 10px;
+    }
+
+    .hero_left .text_hero p{
+      font-size: 2.5vh;
+    }
+
+    .hero_left .text_hero h2{
+        font-size: 10vh;
+    }
+
+    .hero_left .social_networks a{
+        display: none;
+    }
+
+    .hero_left .social_networks i{
+        font-size: 3vh;
+    }
+}
 
 /* MEDIA QUERIES: hero */
 
@@ -300,6 +330,13 @@ para ajustar correctamente los textos */
 
 /* desktop(1024px) */
 /* design: desktop */
+
+@media screen and (min-width:1800px){
+    .hero_left{
+        margin: 0 300px;
+    }
+}
+
 @media screen and (min-width:1024px) and (max-width:1700px){
     .text_hero h3{
         font-size: 40px;
@@ -312,12 +349,6 @@ para ajustar correctamente los textos */
         font-size: 20px;
     }
     
-}
-
-@media screen and (min-width:1800px){
-    .hero_left{
-        margin: 0 300px;
-    }
 }
 
 /* tablet(1024px-max, 768px-min) */
@@ -336,7 +367,7 @@ para ajustar correctamente los textos */
     }
 }
 
-/* mobile(768px-max) */
+/* mobile(320px-min / 768px-max) */
 /* design: mobile */
 @media screen and (max-width:1024px){
     .text_hero h3{
@@ -453,7 +484,7 @@ para ajustar correctamente las tarjetas y ajustar el padding > navbar_container 
     }
 }
 
-/* mobile(768px-max) */
+/* mobile(320px-min / 768px-max) */
 /* design: mobile */
 @media screen and (max-width:1024px){
     .tarjets_hero{
@@ -461,7 +492,7 @@ para ajustar correctamente las tarjetas y ajustar el padding > navbar_container 
     }
 }
 
-/* tours */
+/* section: tours */
 
 /* estilizando el div title_tours */
 .title_tours{
@@ -552,7 +583,7 @@ para ajustar correctamente las tarjetas y ajustar el padding > navbar_container 
 
 /* MEDIA QUERIES: tours */
 
-/* mobile(768px-max) */
+/* mobile(320px-min / 768px-max) */
 /* design: mobile */
 @media screen and (max-width:768px) {
     .tarjet_box{
@@ -562,6 +593,12 @@ para ajustar correctamente las tarjetas y ajustar el padding > navbar_container 
     .tours_tarjets img{
         width: 380px;
     }   
+}
+
+@media screen and (min-width:320px) and (max-width:520px) {
+    .tours_tarjets .tarjet_box img{
+        width: 270px;
+    } 
 }
 
 /* tablet(1024px-max, 768px-min) */
@@ -618,7 +655,7 @@ para ajustar correctamente las tarjetas y ajustar el padding > navbar_container 
     } 
 }
 
-/* About_us */
+/* section: About_us */
 
 /* estilizando etiquetas(h2 y p) > About_us */
 .About_us h2,p{
@@ -662,7 +699,7 @@ para ajustar correctamente las tarjetas y ajustar el padding > navbar_container 
 
 /* estilizando el h2 > About_us_text > About_us_top */
 .About_us_text h2{
-margin-top: 25px;
+    margin-top: 25px;
 }
 
 /* estilizando el p > About_us_text > About_us_top */
@@ -696,17 +733,22 @@ margin-top: 25px;
 
 /* MEDIA QUERIES: About_us */
 
-/* mobile(768px-max) */
+/* mobile(320px-min / 768px-max) */
 /* design: mobile */
 @media screen and (max-width:768px) {
     .About_us p{
         margin: 0 20px;
     }
+
+    .About_us_top .About_us_text h2{
+        font-size: 4.8vh;
+        margin-bottom: 15px;
+    }
 }
 
 /* MEDIA QUERIES: About_us > About_us_top */
 
-/* mobile(768px-max) */
+/* mobile(320px-min / 768px-max) */
 /* design: mobile */
 @media screen and (max-width:768px) {
     .About_us_top img{
@@ -715,6 +757,12 @@ margin-top: 25px;
     
     .About_us_text p{
         width: 100%;
+    }
+}
+
+@media screen and (min-width:320px) and (max-width:520px) {
+    .About_us .About_us_top img{
+        width: 300px;
     }
 }
 
@@ -733,6 +781,8 @@ margin-top: 25px;
         flex-wrap: wrap;
     }
 }
+
+/* About_us_center */
 
 /* estilizando el professional_guide > About_us_center */
 .professional_guides{
@@ -821,11 +871,11 @@ margin-top: 25px;
 
 /* MEDIA QUERIES: professional_guides > About_us_center */
 
-/* mobile(768px-max) */
+/* mobile(320px-min / 768px-max) */
 /* design: mobile */
-@media screen and (max-width:580px){
-    .professional_tarjet{
-        width: 100%;
+@media screen and (max-width:768px) {
+    .professional_tarjet a > h2{
+        margin: 10px 0;
     }
 }
 
@@ -836,13 +886,17 @@ margin-top: 25px;
 
 }
 
-@media screen and (min-width:300px) and (max-width:370px) {
+@media screen and (max-width:580px){
+    .professional_tarjet{
+        width: 100%;
+    }
+}
 
+@media screen and (min-width:320px) and (max-width:370px) {
     .professional_img{
         width: 20vh;
         height: 20vh;
     }
-
 }
 
 /* tablet(1024px-max, 768px-min) */
@@ -867,7 +921,7 @@ margin-top: 25px;
     }
 }
 
-/* contact_us */
+/* section: contact_us */
 
 /* estilizando el contact_us */
 .contact_us{
@@ -946,6 +1000,23 @@ form .color_span{
     font-size: 20px;
     color: #ffc400;
 }
+
+/* MEDIA QUERIES: contact_us */
+
+/* mobile(320px-min / 768px-max) */
+/* design: mobile */
+
+@media screen and (min-width:320px) and (max-width:7680px) {
+    .contact_us h3{
+        text-align: center;
+        margin: 15px;
+    }
+
+    .contact_us form{
+        width: 75%;
+    }
+}
+
 
 /* footer */
 
@@ -1068,22 +1139,17 @@ footer{
    padding: 10px;
 }
 
-/* mobile(768px-max) */
+/* MEDIA QUERIES: footer */
+
+/* mobile(320px-min / 768px-max) */
 /* design: mobile */
-@media screen and (max-width:768px) {
-    header{
-        width: 100%;
+@media screen and (min-width:320px) and (max-width:500px) {
+    .suscribe_container input{
+        width: 25vh;
+        background-color: #bbbbbb;
     }
 
-    .tours{
-        width: 100%;
-    }
-
-    .About_us{
-        width: 100%;
-    }
-
-    .contact_us{
-        width: 100%;
+    .suscribe_container > button{
+        padding: 15px;
     }
 }
