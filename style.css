@@ -257,6 +257,14 @@ header{
 
 /* desktop(1024px) */
 /* design: desktop */
+
+@media screen and (min-width:1025px){
+
+    .links_container .links i{
+        display: none;
+    }
+}
+
 @media screen and (min-width:1800px){
     .navbar_container{
         margin: 0 300px;
@@ -264,10 +272,6 @@ header{
 }
 
 @media screen and (min-width:1025px) and (max-width:1150px) {
-    
-    .links_container .links i{
-        display: none;
-    }
 
     .hero .hero_left{
         margin: 0 0 0 100px;
