@@ -1,11 +1,28 @@
 /* importando el tipo de fuente */
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;500;700;900&display=swap');
 
+/* creando variables */
+
+:root{
+    --bg-header: #8d8b8b4f;
+    --clr-header: #fff;
+    --clr-font-footer: #ffffffc5;
+    --clr-font-footer-hover: #ffffff88;
+    
+    --clr-primary: #ffcd27;
+    --clr-primary-hover: #d3a613;
+    --clr-font: #302e2e;
+    --clr-input: #99999969;
+    --clr-input-hover: #68686896;
+    --clr-input-focus: #686868c0;
+
+}
 
 /* aplicando la fuente tipografica al body */
 body{
     font-family: 'Roboto', sans-serif;
     background-color: #f9f9f9;
+    color: var(--clr-font);
 }
 
 /* aplicando scroll-behavior al html para que los links tengan un efecto suave cuando hagamos click */
@@ -20,1031 +37,456 @@ html{
     box-sizing: border-box;
 }
 
-/* aplicando estilo general al los img_container */
-.img_container{
-    background-size: cover;
-    background-position: center center;
-}
-
 /* aplicando estilo general al los h2 > body */
-body h2{
-    font-size: 55px;
-    color: #333;
-}
-
-/* aplicando estilo general al los h2 > body */
-body a{
+a{
     text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
+    color: inherit;
+    font-size: .9em;
 }
 
-/* estilizando title_overline */
-.title_overline{
-    display: flex;
+li{
+    list-style: none;
+}
+
+button, input{
+    padding: .5em .8em;
+    outline: none;
+    border: none;
+    cursor: url(cursor/Mickey-Mouse-cursor.cur), pointer;
+}
+
+button{
+    font-size: .9em;
+    border-radius: .5em;
+}
+
+:is(a, li, i, button):hover{
+    color: var(--clr-primary-hover);
+    cursor: url(cursor/Mickey-Mouse-cursor.cur), pointer;
+}
+
+h3{
+    font-size: 2em;
+}
+
+/* estilizando title-overline */
+.title-overline{
+    display: inline-flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin: 75px 0 20px;
-    width: 100%;
-    /* background-color: #333; */
 }
 
-/* estilizando title_overline > h2 para que el h2 quede centrado en mobile */
-.title_overline h2{
-   text-align: center;
-}
-
-/* estilizando line > title_overline */
+/* estilizando line > title-overline */
 .line{
-    width: 5%;
     padding: 2.2px;
-    margin-top: 6px;
+    margin-top: 2px;
     border-radius: 20px;
     background-color: #ffcd27;
+    width: 90%;
+    animation: lineAnimated 1.5s ease-in-out infinite alternate;
 }
 
-/* medidas a utilizar para el diseño responisvo */
-/* desktop(1024px) */
-/* tablet(1024px-max, 768px-min) */
-/* mobile(320px-min / 768px-max) */
+@keyframes lineAnimated {
+    from{
+        transform: scale(1);
+    }
+
+    to{
+        transform: scale(1.1);
+    }
+}
+
+.point-color{
+    color: var(--clr-primary);
+    margin-left: .011em;
+}
 
 /* HEADER */
-header{
-    background-image: url(imagenes/img_hero\ \(1\).jpg);
-    background-size: cover;
-    background-position: center center;
-    background-blend-mode: multiply;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-/* DIV: navbar_container */
-
-/* estilizando el div navbar_container*/
-.navbar_container{
+.header-container{
+    padding: .8em 8em;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: var(--bg-header);
+    backdrop-filter: blur(8px);
+    z-index: 100;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 35px 0;
-    margin: 0 100px;
 }
 
-/* estilizando el div logo_container*/
-.logo_container{
+/* DIV: navbar-container */
+
+/* estilizando el div logo-container*/
+.logo-container{
     display: flex;
     align-items: center;
 }
 
 /* estilizando la imagen > logo */
-.logo_container .logo_img{
-    width: 50px;
+.logo-img{
+    width: 3em;
 }
 
 /* estilizando el texto > logo */
-.logo_text{
+.logo-text{
     font-size: 35px;
     font-family: 'Pacifico', cursive;
     font-weight: normal;
-    color: #fff;
+    color: var(--clr-header);
     margin: 0 8px;
     transition: color, 200ms ease;
 }
 
-.logo_text:hover{
+.logo-text:hover{
     color: #f1d272;
 }
 
-/* estilizando los a > div links */
-.links a, i{
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 18px;
-    font-weight: 400;
-    transition: color, 200ms ease;
+.iconBars{
+    display: none;
+    font-size: 1.5em;
+    color: var(--clr-header);
 }
 
-/* aplicando un efecto hover a las etiqueta a > div links */
-.links a:hover{
-    color: #f1d272;
+:is(.links-list-desktop, .links-list-mobile){
+    display: flex;
+    align-items: center;
+    gap: .5em;
+}
+
+.links-item{
+    color: var(--clr-header);
+}
+
+.links-item > a:hover{
     text-decoration: underline;
 }
 
-/* aplicando un efecto hover a las etiqueta i > div links */
-.links i:hover{
-    color: #f1d272;
+.links-mobile-container{
+    display: none;
 }
 
-/* DIV: hero */
-
-.hero{
+/* hero-container */
+.hero-container{
+    padding: 0 8em;
+    background-image: url(imagenes/img-back-hero.jpg);
+    background-size: cover;
+    height: 100vh;
     display: flex;
-    width: 100%;
-    height: 90vh;
+    align-items: center;
+    color: var(--clr-header);
+    mix-blend-mode: darken;
+    background-color: rgba(0, 0, 0, .5);
 }
 
-/* estilizando el hero_center */
-.hero_left{
+.hero-wrapper-flex{
+    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    margin: 0 100px;
 }
 
-/* estilizando el text_hero */
-.text_hero{
-    width: 100%;
-    height: 70vh;
-    padding: 80px 0 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* hero-wrapper-title */
+.hero-wrapper-title{
+    font-size: 3.1em;
 }
 
-.text_hero h3{
-    font-size: 40px;
-    color: #fff;
-    width: 100%;
+/* hero-wrapper-title2 */
+.hero-wrapper-title2{
+    font-size: 3.5em;
 }
 
-.text_hero h2{
-    font-size: 180px;
-    color: #fff;
-    width: 100%;
-    position: relative;
-    z-index: 500;
-}
-
-/* estilizando el span para darle color al text_hero */
-.color_span{
+/* estilizando el span para darle color al text-hero */
+.color-span{
     color: #ffcd27;
 }
 
-.text_hero p{
-    font-size: 20px;
-    color: #fff;
-    width: 100%;
-    position: relative;
-    z-index: 600;
-}
-
-/* estilizando el div tarjets_hero */
-.tarjets_hero{
-    width: 40%;
-    height: 90vh;
-}
-
-/* estilizando las imagenes > div tarjets_hero */
-.tarjets_hero .tarjet{
-   width: 250px;
-   border-radius: 10px;
-   margin: 5px;
-   background-size: cover;
-   background-position: center center;
-}
-
-/* estilizando las imagenes img1 > div tarjets_hero */
-.tarjets_hero .img1{
-    width: 500px;
-    height: 350px;
-    background-image: url(imagenes/img_hero\ \(2\).jpg);
-    position: relative;
-    z-index: 200;
-    right: 150px;
-    top: 10px;
-}
-
-/* estilizando las imagenes img2 > div tarjets_hero */
-.tarjets_hero .img2{
-    width: 350px;
-    height: 400px;
-    background-image: url(imagenes/img_hero\ \(3\).jpg);
-    position: relative;
-    z-index: 300;
-    left: 20px;
-    top: 20px;
-}
-
-/* estilizando las imagenes img3 > div tarjets_hero */
-.tarjets_hero .img3{
-    width: 380px;
-    height: 370px;
-    background-image: url(imagenes/img_hero\ \(4\).jpg);
-    position: relative;
-    z-index: 100;
-    left: 280px;
-    bottom: 600px;
-}
-
-/* estilizando el div social_networks */
-.social_networks{
+.hero-wrapper-links{
     display: flex;
-    align-items: center;
-    margin-top: 45px;
-    width: 100%;
+    gap: .5em;
+    padding-top: 5em;
 }
 
-.social_networks > a{
-    font-size: 20px;
-    margin: 0 8px;
-}
-
-/* MEDIA QUERIES: hero */
-
-/* MEDIA QUERIES: navbar_container */
-
-/* desktop(1024px) */
-/* design: desktop */
-
-@media screen and (min-width:1025px){
-
-    .links_container .links i{
-        display: none;
-    }
-}
-
-@media screen and (min-width:1800px){
-    .navbar_container{
-        margin: 0 300px;
-    }
-}
-
-@media screen and (min-width:1025px) and (max-width:1150px) {
-
-    .hero .hero_left{
-        margin: 0 0 0 100px;
-    }
-}
-
-@media screen and (max-width:1024px) {
-    
-    .navbar_container{
-        padding: 35px 0;
-        margin: 0 35px;
-    }
-    
-    .links_container .links a{
-        display: none;
-    }
-    
-    .links_container .links i{
-        font-size: 40px;
-        font-weight: 900;
-        color: #fff;
-    }
-    
-    .links_container .links i:hover{
-        color: #f1d272;
-    }
-    
-}
-
-
-/* mobile(320px-min / 768px-max) */
-/* design: mobile */
-@media screen and (min-width:320px) and (max-width:520px) {
-    .navbar_container{
-       margin: 0 10px;
-    }
-
-    .hero .hero_left{
-        margin: 0 10px;
-    }
-
-    .hero_left .text_hero p{
-      font-size: 2.5vh;
-    }
-
-    .hero_left .text_hero h2{
-        font-size: 10vh;
-    }
-
-    .hero_left .social_networks a{
-        display: none;
-    }
-
-    .hero_left .social_networks i{
-        font-size: 3vh;
-    }
-}
-
-/* MEDIA QUERIES: hero */
-
-/* media queries: text_hero 
-para ajustar correctamente los textos */
-
-/* desktop(1024px) */
-/* design: desktop */
-
-@media screen and (min-width:1800px){
-    .hero_left{
-        margin: 0 300px;
-    }
-}
-
-@media screen and (min-width:1024px) and (max-width:1700px){
-    .text_hero h3{
-        font-size: 40px;
-    }
-    
-    .text_hero h2{
-        font-size: 140px;
-    }
-    .text_hero p{
-        font-size: 20px;
-    }
-    
-}
-
-/* tablet(1024px-max, 768px-min) */
-/* design: tablet */
-@media screen and (min-width:768px) and (max-width:1024px){
-    
-    .text_hero h3{
-        font-size: 40px;
-    }
-    
-    .text_hero h2{
-        font-size: 110px;
-    }
-    .text_hero p{
-        font-size: 20px;
-    }
-}
-
-/* mobile(320px-min / 768px-max) */
-/* design: mobile */
-@media screen and (max-width:1024px){
-    .text_hero h3{
-        font-size: 30px;
-    }
-    
-    .text_hero h2{
-        font-size: 100px;
-    }
-    
-    .text_hero p{
-        font-size: 20px;
-    }
-    
-    .hero_left{
-        margin: 0 35px;
-    }
-}
-
-
-/* media queries: tarjets_hero
-para ajustar correctamente las tarjetas y ajustar el padding > navbar_container */
-
-/* desktop(1024px) */
-/* design: desktop */
-@media screen and (min-width:1024px) and (max-width:1300px){
-    .tarjets_hero .img1{
-        width: 320px;
-        height: 250px;
-        right: 300px;
-        top: 10px;
-    }
-    
-    .tarjets_hero .img2{
-        width: 300px;
-        height: 310px;
-        left: -250px;
-        top: 20px;
-    }
-    
-    .tarjets_hero .img3{
-        width: 300px;
-        height: 310px;
-        left: -100px;
-        bottom: 450px;
-    }
-}
-
-@media screen and (min-width:1300px) and (max-width:1500px){
-    .tarjets_hero .img1{
-        width: 350px;
-        height: 250px;
-        right: 280px;
-        top: 10px;
-    }
-    
-    .tarjets_hero .img2{
-        width: 330px;
-        height: 300px;
-        left: -240px;
-        top: 20px;
-    }
-    
-    .tarjets_hero .img3{
-        width: 320px;
-        height: 300px;
-        left: -10px;
-        bottom: 450px;
-    }
-}
-
-@media screen and (min-width:1500px) and (max-width:1800px){
-    .tarjets_hero .img1{
-        width: 440px;
-        height: 300px;
-        right: 340px;
-        top: 10px;
-    }
-    
-    .tarjets_hero .img2{
-        width: 330px;
-        height: 340px;
-        left: -200px;
-        top: 20px;
-    }
-    
-    .tarjets_hero .img3{
-        width: 380px;
-        height: 370px;
-        left: 20px;
-        bottom: 520px;
-    }
-}
-
-@media screen and (min-width:1800px){
-    .tarjets_hero .img1{
-        width: 490px;
-        height: 330px;
-        right: 340px;
-        top: 10px;
-    }
-    
-    .tarjets_hero .img2{
-        width: 360px;
-        height: 370px;
-        left: -190px;
-        top: 20px;
-    }
-    
-    .tarjets_hero .img3{
-        width: 400px;
-        height: 390px;
-        left: 60px;
-    }
-}
-
-/* mobile(320px-min / 768px-max) */
-/* design: mobile */
-@media screen and (max-width:1024px){
-    .tarjets_hero{
-        display: none;
-    }
+/* main-wrapper */
+.main-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+    margin-top: 3em;
 }
 
 /* section: tours */
+.tours{
+    padding: 0 8em;
+    padding-top: 7em;
+}
 
-/* estilizando el div title_tours */
+/* estilizando el div title-tours */
 .title_tours{
     margin-bottom: 60px;
 }
 
-/* estilizando el div tours_title */
+/* estilizando el div tours-title */
 .tours_title{
     margin: 60px 0;
     font-size: 60px;
     text-align: center;
-    /* width: 100%; */
 }
 
-/* estilizando el div tours_tarjets */
-.tours_tarjets{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+/* estilizando el div tours-tarjets */
+.tours-cards{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
+    margin-top: 1em;
 }
 
-/* estilizando el div tarjet_box */
-.tarjet_box{
+.card-box-img{
+    width: 100%;
+}
+
+/* estilizando el div card-box */
+.card-box{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 20px;
+    border-radius: .5em;
     border: 2px solid #e5e5e5;
-    width: 30%;
-    margin: 25px 15px;
-    padding: 30px;
     overflow: hidden;
     transition: transform, 200ms ease;
 }
 
-.tarjet_box:hover{
-    transform: translatey(-10px) scale(1.05);
+.card-box:hover{
+    transform: translatey(-.015em) scale(1.01);
 }
 
-/* estilizando la imagen > div tours_tarjets */
-.tours_tarjets img{
-    width: 500px;
-    border-radius: 10px;
-    /* margin-top: 30px; */
-}   
-
-/* estilizando el h2 > tarjet_box */
-.tarjet_box h2{
-    font-size: 28px;
-    margin: 18px 0 2px;
-}
-
-/* estilizando el p > tarjet_box */
-.tarjet_box p{
-    font-size: 18px;
-    text-align: center;
-    margin: 18px 0 8px;
-    width: 80%;
-}
-
-/* estilizando el h3 > tarjet_box */
-.tarjet_box h3{
-    font-size: 25px;
-    margin: 20px 0;
-}
-
-/* estilizando el btn_tarjet > tarjet_box */
-.btn_tarjet{
-    background-color: #ebebeb;
-    padding: 18px 30px;
-    border-radius: 20px;
-    border: none;
-    transition: background, 200ms ease;
-}
-
-.btn_tarjet:hover{
-    cursor: pointer;
-    background-color: #f1d272;
-}
-
-/* estilizando el a > btn_tarjet > tarjet_box */
-.btn_tarjet a{
-    text-decoration: none;
-    color: #333;
-    font-weight: 700;
-    font-size: 16px;
-}
-
-/* MEDIA QUERIES: tours */
-
-/* mobile(320px-min / 768px-max) */
-/* design: mobile */
-@media screen and (max-width:768px) {
-    .tarjet_box{
-        width: 90%;
-    }
-
-    .tours_tarjets img{
-        width: 380px;
-    }   
-}
-
-@media screen and (min-width:320px) and (max-width:520px) {
-    .tours_tarjets .tarjet_box img{
-        width: 270px;
-    } 
-}
-
-/* tablet(1024px-max, 768px-min) */
-/* design: tablet */
-@media screen and (min-width:768px) and (max-width:968px) {
-    .tarjet_box{
-        width: 75%;
-    }
-
-    .tours_tarjets img{
-        width: 500px;
-    } 
-}
-
-@media screen and (min-width:968px) and (max-width:1024px) {
-    .tarjet_box{
-        width: 75%;
-    }
-
-    .tours_tarjets img{
-        width: 600px;
-    } 
-}
-
-/* desktop(1024px) */
-/* design: desktop */
-@media screen and (min-width:1024px) and (max-width:1100px) {
-    .tarjet_box{
-        width: 70%;
-    }
-
-    .tours_tarjets img{
-        width: 600px;
-    } 
-}
-
-@media screen and (min-width:1100px) and (max-width:1524px) {
-    .tarjet_box{
-        width: 70%;
-    }
-
-    .tours_tarjets img{
-        width: 700px;
-    } 
-}
-
-@media screen and (min-width:1524px) and (max-width:1824px) {
-    .tarjet_box{
-        width: 40%;
-    }
-
-    .tours_tarjets img{
-        width: 550px;
-    } 
-}
-
-/* section: About_us */
-
-/* estilizando etiquetas(h2 y p) > About_us */
-.About_us h2,p{
-    text-align: center;
-}
-
-.About_us h2{
-   font-size: 50px;
-   color:#333;
-}
-
-.About_us p{
-   font-size: 20px;
-   font-weight: 500;
-   color: #555;
-   margin: 12px 0;
-}
-
-/* About_us_top */
-
-/* estilizando el About_us_top */
-.About_us_top{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 60px 70px;
-}
-
-/* estilizando la imagen > About_us_top */
-.About_us_top img{
-    width: 600px;
-    border-radius: 8px;
-}
-
-/* estilizando el About_us_text */
-.About_us_text{
+.card-box-content{
+    flex-grow: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1em;
+    justify-content: space-between;
+    padding: 1em;
 }
 
-/* estilizando el h2 > About_us_text > About_us_top */
-.About_us_text h2{
-    margin-top: 25px;
+.card-box-desc{
+    text-align: center;
 }
 
-/* estilizando el p > About_us_text > About_us_top */
-.About_us_text p{
-    width: 75%;
-    margin: 25px 0;
+/* section: about-us */
+
+.about-us{
+    padding: 0 8em;
+    padding-top: 7em;
 }
 
-/* estilizando el btn_About_us > About_us_top */
-.btn_About_us{
-    background-color: #ebebeb;
-    padding: 25px 40px;
-    margin-top: 12px;
-    border-radius: 50px;
-    border: none;
-    transition: background, 200ms ease;
+.about-us-description{
+    margin: .5em 0;
 }
 
-.btn_About_us:hover{
-    cursor: pointer;
-    background-color: #f1d272;
-}
+/* about-us-top */
 
-/* estilizando el a > btn_About_us_text > About_us_top */
-.btn_About_us a{
-    text-decoration: none;
-    color: #333;
-    font-weight: 700;
-    font-size: 18px;
-}
-
-/* MEDIA QUERIES: About_us */
-
-/* mobile(320px-min / 768px-max) */
-/* design: mobile */
-@media screen and (max-width:768px) {
-    .About_us p{
-        margin: 0 20px;
-    }
-
-    .About_us_top .About_us_text h2{
-        font-size: 4.8vh;
-        margin-bottom: 15px;
-    }
-}
-
-/* MEDIA QUERIES: About_us > About_us_top */
-
-/* mobile(320px-min / 768px-max) */
-/* design: mobile */
-@media screen and (max-width:768px) {
-    .About_us_top img{
-        width: 400px;
-    }   
-    
-    .About_us_text p{
-        width: 100%;
-    }
-}
-
-@media screen and (min-width:320px) and (max-width:520px) {
-    .About_us .About_us_top img{
-        width: 300px;
-    }
-}
-
-/* tablet(1024px-max, 768px-min) */
-/* design: tablet */
-@media screen and (max-width:1024px) {
-    .About_us_top{
-      flex-wrap: wrap;
-    }
-}
-
-/* desktop(1024px) */
-/* design: desktop */
-@media screen and (max-width:1324px) {
-    .About_us_top{
-        flex-wrap: wrap;
-    }
-}
-
-/* About_us_center */
-
-/* estilizando el professional_guide > About_us_center */
-.professional_guides{
+/* estilizando el About-us-top */
+.about-us-top{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 0 30px;
+    margin: 1.8em 0;
 }
 
-/* estilizando el professional_tarjet > professional_guide */
-.professional_tarjet{
+/* estilizando la imagen > About-us-top */
+.about-us-up-img{
+    width: 35em;
+    border-radius: 1em;
+}
+
+/* estilizando el about-us-text */
+.about-us-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 8em;
+}
+
+.about-us-text-title{
+    font-size: 1.55em;
+}
+
+.about-us-text-description{
+    font-size: 1.05em;
+    margin-block: .5em;
+    margin-bottom: 1em;
+}
+
+/* about-us-center */
+
+.About-us-center{
+    margin: 2.8em 0;
+}
+
+/* estilizando el professional-guide > about-us-center */
+.professional-guides{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5em;
+    margin-top: 1em;
+}
+
+/* estilizando el professional-card > professional-guide */
+.professional-card{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    border-radius: 20px;
-    margin: 10px 20px;
-    padding: 10px 0;
-    width: 20%;
-    /* height: 100vh; */
-
+    justify-content: space-between;
+    gap: 1em;
+    border-radius: .5em;
+    padding: 1em 1.5em;
+    border: 1px solid var(--clr-input);
 }
 
-.professional_tarjet a{
-    text-decoration: #f1d272;
-}
-
-.professional_tarjet a > h2:hover{
-    text-decoration: underline;
-    color: #f1d272;
-}
-
-.professional_tarjet h2{
-    font-size: 30px;
-}
-
-.professional_tarjet p{
-    font-size: 18px;
-    width: 90%;
-    color: #999;
-}
-
-/* estilizandola imagen > professional_tarjet > professional_guide*/
-.professional_img{
+/* estilizandola imagen > professional-tarjet > professional-guide */
+.professional-img{
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    margin: 30px 0 10px;
-    background-position: top center;
+    background-position: center center;
+    background-size: cover;
 }
 
-/* aplicando la imagen 1 al professional_img > professional_tarjet > professional_guide*/
-.pro_img-1{
+/* aplicando la imagen 1 al professional-img > professional-tarjet > professional-guide */
+.pro-img-1{
     background-image: url(imagenes/professional_tarjet\(01\).jpg);
 }
 
-/* aplicando la imagen 2 al professional_img > professional_tarjet > professional_guide*/
-.pro_img-2{
+/* aplicando la imagen 2 al professional-img > professional-tarjet > professional-guide */
+.pro-img-2{
     background-image: url(imagenes/professional_tarjet\(02\).jpg);
 }
 
-/* aplicando la imagen 3 al professional_img > professional_tarjet > professional_guide*/
-.pro_img-3{
+/* aplicando la imagen 3 al professional-img > professional-tarjet > professional-guide */
+.pro-img-3{
     background-image: url(imagenes/professional_tarjet\(03\).jpg);
 }
 
-/* aplicando la imagen 4 al professional_img > professional_tarjet > professional_guide*/
-.pro_img-4{
+/* aplicando la imagen 4 al professional-img > professional-tarjet > professional-guide */
+.pro-img-4{
     background-image: url(imagenes/professional_tarjet\(04\).jpg);
 }
 
-/* aplicando la imagen 5 al professional_img > professional_tarjet > professional_guide*/
-.pro_img-5{
+/* aplicando la imagen 5 al professional-img > professional-tarjet > professional-guide */
+.pro-img-5{
     background-image: url(imagenes/professional_tarjet\(05\).jpg);
 }
 
-/* aplicando la imagen 6 al professional_img > professional_tarjet > professional_guide*/
-.pro_img-6{
+/* aplicando la imagen 6 al professional-img > professional-tarjet > professional-guide */
+.pro-img-6{
     background-image: url(imagenes/professional_tarjet\(06\).jpg);
 }
 
-.center{
-    margin: 18px 0 20px;
+.professional-name{
+    font-weight: 600;
+    font-size: 1em;
 }
 
-/* MEDIA QUERIES: professional_guides > About_us_center */
-
-/* mobile(320px-min / 768px-max) */
-/* design: mobile */
-@media screen and (max-width:768px) {
-    .professional_tarjet a > h2{
-        margin: 10px 0;
-    }
+.professional-card-desc{
+    text-align: center;
 }
 
-@media screen and (min-width:580px) and (max-width:768px) {
-    .professional_tarjet{
-        width: 70%;
-    }
+/* section: contact-us */
 
+.contact-us{
+    padding: 0 8em;
+    padding-top: 7em;    
 }
 
-@media screen and (max-width:580px){
-    .professional_tarjet{
-        width: 100%;
-    }
-}
-
-@media screen and (min-width:320px) and (max-width:370px) {
-    .professional_img{
-        width: 20vh;
-        height: 20vh;
-    }
-}
-
-/* tablet(1024px-max, 768px-min) */
-/* design: tablet */
-@media screen and (min-width:768px) and (max-width:1024px) {
-    .professional_tarjet{
-        width: 60%;
-    }
-}
-
-/* desktop(1024px) */
-/* design: desktop */
-@media screen and (min-width:1024px) and (max-width:1524px) {
-    .professional_tarjet{
-        width: 40%;
-    }
-}
-
-@media screen and (min-width:1524px) and (max-width:1724px) {
-    .professional_tarjet{
-        width: 30%;
-    }
-}
-
-/* section: contact_us */
-
-/* estilizando el contact_us */
-.contact_us{
+/* contact-us-form-wrapper */
+.contact-us-form-wrapper{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 0 auto;
+    width: 60%;
+    margin-top: 2em;
+}
+
+:is(.contact-us-form-title1, .contact-us-form-title2){
+    font-size: 1.2em;
+}
+
+/* estilizando el form > contact-us */
+.contact-us-form{
+    display: flex;
+    flex-direction: column;
+    gap: .2em;
+    margin-top: .8em;
+}
+
+.form-group{
+    display: flex;
     align-items: center;
+    gap: .5em;
 }
 
-/* estilizando el h3 > contact_us */
-.contact_us h3{
-    margin: 3px 0;
-    font-size: 20px;
-    color: #333;
-  }
-  
-/* estilizando el form > contact_us */
-.contact_us form{
+.form-subgroup{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    flex-grow: 1;
 }
 
-/* estilizando el input > form > contact_us */
-.contact_us form > input{
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid #99999969;
-    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.089);
-    outline: none;
+.contact-us-form-input{
+    background-color: inherit;
+    border-bottom: 1px solid var(--clr-input);
+}
+
+.contact-us-form-input:hover{
+    border-bottom: 1px solid var(--clr-input-hover);
+}
+
+.contact-us-form-input:focus{
+    border-bottom: 1px solid var(--clr-input-focus);
+}
+
+/* estilizando el label > form > contact-us */
+.contact-us-form-label{
     font-size: 16px;
+    margin: .2em 0;
 }
 
-.contact_us form > input:hover{
-    border: 1px solid #68686896;
-    background-color: #e5e5e5;
-}
-
-.contact_us form > input:focus{
-    border: 1px solid #68686896;
-    background-color: #e5e5e5;
-}
-
-/* estilizando el input_message > form > contact_us */
-.contact_us .input_message{
-    padding: 10px 12px 40px;
-}
-
-/* estilizando el label > form > contact_us */
-.contact_us form > label{
-    margin: 28px 0 10px 10px;
-    font-size: 16px;
-}
-
-/* estilizando el btn_container > form > contact_us */
-.btn_container{
-    display: flex;
-    justify-content: center;
-}
-
-/* estilizando el button > btn_container > form > contact_us */
-.btn_container > button{
-    padding: 18px 70px;
-    margin: 25px;
-    border-radius: 10px;
-    border: none;
+/* estilizando el btn-container > form > contact-us */
+.contact-us-form-btn{
+    margin-top: 1.5em;
     background-color: #f1d272;
+    padding-block: .8em;
 }
 
-.btn_container > button:hover{
+.contact-us-form-btn:hover{
     background-color: #cab061;
+    color: var(--clr-header);
 }
 
-/* estilizando el color_span > form > contact_us */
-form .color_span{
+/* estilizando el color-span > form > contact-us */
+form .color-span{
     font-size: 20px;
     color: #ffc400;
 }
 
-/* MEDIA QUERIES: contact_us */
-
-/* mobile(320px-min / 768px-max) */
-/* design: mobile */
-
-@media screen and (min-width:320px) and (max-width:7680px) {
-    .contact_us h3{
-        text-align: center;
-        margin: 15px;
-    }
-
-    .contact_us form{
-        width: 75%;
-    }
-}
-
-
 /* footer */
 
-footer{
-    margin-top: 90px;
-}
-
-.footer_top{
+.footer-top{
+    padding: 0 8em;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    margin: 30px 0;
+    margin: 4em 0 3em;
+    gap: 1em;
 }
 
-/* estilizando las imagenes > footer_top > footer */
-.footer_top img{
-    width: 170px;
-    margin: 10px 28px;
+/* estilizando las imagenes > footer-top > footer */
+.footer-top img{
+    width: 10.5em;
 }
 
-.footer_center{
+.footer-center{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1053,109 +495,206 @@ footer{
     background-size: cover;
     background-blend-mode: multiply;
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 150px 0;
+    padding-block: 8em;
 }
 
-.links_footer{
+.links-footer{
     margin: 19px 0;
     display: flex;
-    flex-wrap: wrap;
-    /* flex-direction: column; */
     align-items: center;
-    justify-content: center;
+    gap: .9em;
 }
 
-.links_footer a{
-    margin: 8px 15px;
-    font-size: 20px;
-    color: #f9f9f9;
+.links-footer a{
+    font-size: 1.1em;
+    color: var(--clr-font-footer);
 }
 
-.links_footer a:hover{
-    color: #bbbbbb;
+.links-footer a:hover{
+    color: var(--clr-font-footer-hover);
 }
 
-.suscribe_container{
-    margin: 18px 0;
-    padding: 2px;
-    /* background-color: #999; */
+.suscribe-container{
     display: flex;
-    align-items: center;
     border: 3px solid #f9f9f9;
 }
 
-.suscribe_container > input{
-    padding: 15px 8px;
-    margin: 2px;
+.suscribe-input{
     background-color: transparent;
-    border: none;
-    outline: none;
-    font-size: 18px;
 }
 
-.suscribe_container > input:hover{
+.suscribe-input:hover{
     background: linear-gradient(120deg, #9999991a,#55555573);
 }
 
-.suscribe_container > input:focus{
+.suscribe-input:focus{
   background: linear-gradient(120deg, #9999997c,#55555573);
 }
 
-.suscribe_container > input::placeholder{
+.suscribe-input::placeholder{
   font-size: 18px;
-  color: #f9f9f9;
+  color: var(--clr-font-footer);
 }
 
-.suscribe_container > input:focus::placeholder{
-  opacity: 0;
-}
-
-.suscribe_container > button{
-    padding: 12px 35px;
-    margin: 2px;
+.suscribe-btn{
+    padding: .6em 1em;
+    margin: .3em;
     background-color: #f9f9f9;
-    border: none;
+    border-radius: 0;
 }
 
-.suscribe_container > button:hover{
+.suscribe-btn:hover{
     background-color: #bbbbbb;
+    color: var(--clr-font);
 }
 
-
-.social_networks_footer{
+.social-networks-footer{
     margin: 18px 0;
 }
 
-.social_networks_footer i{
+.social-networks-footer i{
     font-size: 30px;
-    color: #f9f9f9;
+    color: var(--clr-font-footer);
     margin: 0 15px;
 }
 
-.social_networks_footer i:hover{
-    color: #bbbbbb;
+.social-networks-footer i:hover{
+    color: var(--clr-font-footer-hover);
 }
 
-.footer_bottom{
-   background-color: #111111;
+.footer-bottom{
+    padding: 1em 0;
+    display: flex;
+    justify-content: center;
+    color: var(--clr-font-footer);
+    background-color: #111111;
 }
 
-.footer_bottom h3{
+.footer-bottom h3{
    text-align: center;
    color: #f9f9f9;
    padding: 10px;
 }
 
-/* MEDIA QUERIES: footer */
-
-/* mobile(320px-min / 768px-max) */
-/* design: mobile */
-@media screen and (min-width:320px) and (max-width:500px) {
-    .suscribe_container input{
-        width: 25vh;
+/* media-queries */
+@media screen and (max-width:1650px) {
+    .tours-cards{
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    .suscribe_container > button{
-        padding: 15px;
+    .professional-guides{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .about-us-text{
+        padding-left: 5em;
+    }
+}
+
+@media screen and (max-width:1500px) {
+    .about-us-text{
+        padding-left: 3em;
+    }
+}
+
+@media screen and (max-width:1400px) {
+    .tours-cards{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-us-form-wrapper{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:1350px) {
+    .about-us-top{
+        flex-direction: column;
+    }
+
+    .about-us-text{
+        padding-left: 0;
+        margin-top: 1em;
+    }
+
+    .about-us-up-img{
+        width: 100%;
+        height: 30em;
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width:1250px) {
+    .professional-guides{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width:1000px) {
+    :is(.professional-guides, .tours-cards){
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .links-footer{
+        flex-direction: column;
+    }
+
+    .about-us-up-img{
+        height: 25em;
+    }
+
+    :is(.header-container, .hero-container, .tours, .about-us, .contact-us, .footer-top){
+        padding-inline: 5em;
+    }
+
+    .logo-img{
+        width: 2.5em;
+    }
+}
+
+@media screen and (max-width:800px) {
+    :is(.header-container, .hero-container, .tours, .about-us, .contact-us, .footer-top){
+        padding-inline: 3em;
+    }
+
+    .footer-center{
+        padding-block: 4em;
+    }
+
+    .links-desktop-container{
+        display: none;
+    }
+
+    .links-mobile-container{
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        width: 10em;
+        background-color: #10242B;
+        box-shadow: 0 0 0 500vmax rgba(0, 0, 0, .5);
+        z-index: 100;
+        padding-top: 1em;
+    }
+
+    .mobile-disabled{
+        display: none;
+    }
+
+    .links-list-mobile{
+        flex-direction: column;
+    }
+
+    .iconClose{
+        font-size: 1.5em;
+        color: var(--clr-header);
+    }
+
+    .iconBars{
+        display: block;
     }
 }
